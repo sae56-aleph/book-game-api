@@ -1,0 +1,95 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Livre {
+  id          Int        @id
+  description String
+  couverture  String
+  variables   Variable[]
+
+  sections Section[]
+  intro    Section   @relation(name: "intro", fields: [introId], references: [id])
+  introId  Int       @unique
+}
+
+model Section {
+  id           Int            @id
+  texte        String
+  livreIntro   Livre?         @relation(name: "intro")
+  Livre        Livre?         @relation(fields: [livreId], references: [id])
+  livreId      Int?
+  MiseAJourVar MiseAJourVar[]
+}
+
+model Variable {
+  id             Int            @id
+  valeur_initale Int
+  type           TypeVariable
+  livre          Livre          @relation(fields: [idLivre], references: [id])
+  idLivre        Int
+  MiseAJourVar   MiseAJourVar[]
+}
+
+enum TypeVariable {
+  Statistique
+  Inventaire
+}
+
+model MiseAJourVar {
+  section  Section  @relation(fields: [idSection], references: [id])
+  variable Variable @relation(fields: [idVariable], references: [id])
+  quantite Int
+
+  idSection  Int
+  idVariable Int
+
+  @@id([idVariable, idSection])
+}
+
+model Action {
+  id              Int              @id
+  label           String
+  ActionSimple    ActionSimple?
+  ActionCondition ActionCondition?
+  ActionCombat    ActionCombat?
+  ActionDe        ActionDe?
+}
+
+model ActionSimple {
+  id       Int    @id
+  action   Action @relation(fields: [idAction], references: [id])
+  idAction Int    @unique
+}
+
+model ActionCondition {
+  id        Int    @id
+  condition String
+  action    Action @relation(fields: [idAction], references: [id])
+  idAction  Int    @unique
+}
+
+model ActionCombat {
+  id         Int    @id
+  nom_ennemi String
+  action     Action @relation(fields: [idAction], references: [id])
+  idAction   Int    @unique
+}
+
+model ActionDe {
+  id       Int    @id
+  seuil    String
+  action   Action @relation(fields: [idAction], references: [id])
+  idAction Int    @unique
+}
