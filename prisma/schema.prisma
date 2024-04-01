@@ -31,6 +31,8 @@ model Section {
   Livre        Livre?         @relation(fields: [livreId], references: [id])
   livreId      Int?
   MiseAJourVar MiseAJourVar[]
+  Action       Action[]
+  declanche    Action?        @relation(name: "provoquePar")
 }
 
 model Variable {
@@ -61,10 +63,14 @@ model MiseAJourVar {
 model Action {
   id              Int              @id
   label           String
+  sectionOrigine  Int              @unique
+  viensDe         Section          @relation(name: "provoquePar", fields: [sectionOrigine], references: [id])
+  section         Section          @relation(fields: [idSection], references: [id])
   ActionSimple    ActionSimple?
   ActionCondition ActionCondition?
   ActionCombat    ActionCombat?
   ActionDe        ActionDe?
+  idSection       Int              @unique
 }
 
 model ActionSimple {
