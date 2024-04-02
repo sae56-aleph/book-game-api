@@ -69,6 +69,7 @@ model Action {
   actionCondition ActionCondition?
   actionCombat    ActionCombat?
   actionDe        ActionDe?
+  ActionEnigme    ActionEnigme?
 }
 
 model ActionSimple {
@@ -101,4 +102,12 @@ model ActionDe {
   idAction           Int      @unique
   destinationEchec   Section? @relation(name: "section_de_echec", fields: [idDestinationEchec], references: [id])
   idDestinationEchec Int?
+}
+
+model ActionEnigme {
+  id       Int    @id
+  question String
+  reponse  String
+  action   Action @relation(fields: [idAction], references: [id])
+  idAction Int    @unique
 }
