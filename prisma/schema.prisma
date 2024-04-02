@@ -23,13 +23,13 @@ model Section {
   texte   String
   idLivre Int?
 
-  livre           Livre?         @relation(fields: [idLivre], references: [id])
-  livreIntro      Livre?         @relation(name: "intro")
-  miseAJourVar    MiseAJourVar[]
-  actions         Action[]       @relation(name: "section_origine")
-  declancheurs    Action[]       @relation(name: "section_destination")
-  declancheursDes ActionDe[]     @relation(name: "section_echec")
-  ActionCombat    ActionCombat[] @relation(name: "section_echec")
+  livre              Livre?         @relation(fields: [idLivre], references: [id])
+  livreIntro         Livre?         @relation(name: "intro")
+  miseAJourVar       MiseAJourVar[]
+  actions            Action[]       @relation(name: "section_origine")
+  declancheurs       Action[]       @relation(name: "section_destination")
+  declancheursDes    ActionDe[]     @relation(name: "section_de_echec")
+  declancheursCombat ActionCombat[] @relation(name: "section_combat_echec")
 }
 
 model Variable {
@@ -88,7 +88,7 @@ model ActionCombat {
   id                 Int      @id
   nom_ennemi         String
   action             Action   @relation(fields: [idAction], references: [id])
-  destinationEchec   Section? @relation(name: "section_echec", fields: [idDestinationEchec], references: [id])
+  destinationEchec   Section? @relation(name: "section_combat_echec", fields: [idDestinationEchec], references: [id])
   idDestinationEchec Int?
 
   idAction Int @unique
@@ -99,6 +99,6 @@ model ActionDe {
   seuil              String
   action             Action   @relation(fields: [idAction], references: [id])
   idAction           Int      @unique
-  destinationEchec   Section? @relation(name: "section_echec", fields: [idDestinationEchec], references: [id])
+  destinationEchec   Section? @relation(name: "section_de_echec", fields: [idDestinationEchec], references: [id])
   idDestinationEchec Int?
 }
