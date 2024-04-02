@@ -1,0 +1,104 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Livre {
+  id          Int    @id
+  description String
+  couverture  String
+  idIntro     Int    @unique
+
+  variables Variable[]
+  sections  Section[]
+  intro     Section    @relation(name: "intro", fields: [idIntro], references: [id])
+}
+
+model Section {
+  id      Int    @id
+  texte   String
+  idLivre Int?
+
+  livre              Livre?         @relation(fields: [idLivre], references: [id])
+  livreIntro         Livre?         @relation(name: "intro")
+  miseAJourVar       MiseAJourVar[]
+  actions            Action[]       @relation(name: "section_origine")
+  declancheurs       Action[]       @relation(name: "section_destination")
+  declancheursDes    ActionDe[]     @relation(name: "section_de_echec")
+  declancheursCombat ActionCombat[] @relation(name: "section_combat_echec")
+}
+
+model Variable {
+  id            Int            @id
+  valeurInitale Int
+  type          TypeVariable
+  livre         Livre          @relation(fields: [idLivre], references: [id])
+  idLivre       Int
+  miseAJourVar  MiseAJourVar[]
+}
+
+enum TypeVariable {
+  Statistique
+  Inventaire
+}
+
+model MiseAJourVar {
+  section  Section  @relation(fields: [idSection], references: [id])
+  variable Variable @relation(fields: [idVariable], references: [id])
+  quantite Int
+
+  idSection  Int
+  idVariable Int
+
+  @@id([idVariable, idSection])
+}
+
+model Action {
+  id            Int    @id
+  label         String
+  idOrigine     Int    @unique
+  idDestination Int    @unique
+
+  origine         Section          @relation(name: "section_origine", fields: [idOrigine], references: [id])
+  destination     Section          @relation(name: "section_destination", fields: [idDestination], references: [id])
+  actionSimple    ActionSimple?
+  actionCondition ActionCondition?
+  actionCombat    ActionCombat?
+  actionDe        ActionDe?
+}
+
+model ActionSimple {
+  id       Int    @id
+  action   Action @relation(fields: [idAction], references: [id])
+  idAction Int    @unique
+}
+
+model ActionCondition {
+  id        Int    @id
+  condition String
+  action    Action @relation(fields: [idAction], references: [id])
+  idAction  Int    @unique
+}
+
+model ActionCombat {
+  id                 Int      @id
+  nom_ennemi         String
+  action             Action   @relation(fields: [idAction], references: [id])
+  destinationEchec   Section? @relation(name: "section_combat_echec", fields: [idDestinationEchec], references: [id])
+  idDestinationEchec Int?
+
+  idAction Int @unique
+}
+
+model ActionDe {
+  id                 Int      @id
+  seuil              String
+  action             Action   @relation(fields: [idAction], references: [id])
+  idAction           Int      @unique
+  destinationEchec   Section? @relation(name: "section_de_echec", fields: [idDestinationEchec], references: [id])
+  idDestinationEchec Int?
+}
