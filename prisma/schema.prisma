@@ -29,6 +29,7 @@ model Section {
   actions         Action[]       @relation(name: "section_origine")
   declancheurs    Action[]       @relation(name: "section_destination")
   declancheursDes ActionDe[]     @relation(name: "section_echec")
+  ActionCombat    ActionCombat[] @relation(name: "section_echec")
 }
 
 model Variable {
@@ -84,10 +85,13 @@ model ActionCondition {
 }
 
 model ActionCombat {
-  id         Int    @id
-  nom_ennemi String
-  action     Action @relation(fields: [idAction], references: [id])
-  idAction   Int    @unique
+  id                 Int      @id
+  nom_ennemi         String
+  action             Action   @relation(fields: [idAction], references: [id])
+  destinationEchec   Section? @relation(name: "section_echec", fields: [idDestinationEchec], references: [id])
+  idDestinationEchec Int?
+
+  idAction Int @unique
 }
 
 model ActionDe {
