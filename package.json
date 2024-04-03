@@ -1,6 +1,9 @@
 {
   "name": "book-game-api",
   "version": "1.0.0",
+  "prisma": {
+    "seed": "node prisma/seed.js"
+  },
   "description": "API du livre interractif",
   "main": "index.js",
   "scripts": {

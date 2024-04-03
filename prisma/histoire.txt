@@ -1,0 +1,288 @@
+﻿#1 Le Terrier du Lapin
+Vous vous trouvez dans un étroit terrier, entourée de murs de terre et de racines noueuses. La lumière du jour filtre à travers les interstices, créant des motifs d’ombres étranges sur le sol. L’air est humide et empli d’une odeur de terre et de mystère. Devant vous, une porte minuscule en bois vermoulu mène à un couloir sombre. Vous entendez le tic-tac d’une horloge lointaine. Que faites-vous ?
+---SIMPLE
+Passer par la porte [2]
+Explorer la salle [3]
+
+
+#2 La Salle des Portes
+Vous vous baissez et pénétrez dans le couloir étroit. La porte se referme derrière vous, et vous vous retrouvez dans un espace encore plus confiné. Des étagères débordent de vieux livres poussiéreux. Au loin, vous apercevez une lueur.
+Vous entrez dans une pièce circulaire avec des portes tout autour. Chacune porte une étiquette énigmatique. La lueur provient d’une bougie posée sur une table au centre de la pièce. La cire fond lentement, créant des ombres dansantes sur les murs. Les portes portent les inscriptions suivantes :
+---SIMPLE
+La Porte du Lapin Blanc : “Le temps est précieux ici.” [5]
+
+
+#3 Exploration de la Salle des Portes
+Vous décidez de prendre le temps d'explorer la mystérieuse salle circulaire. Les portes autour de vous semblent contenir d'innombrables secrets, et vous êtes déterminée à découvrir ce qu'elles cachent.
+Vous commencez par fouiller les étagères à la recherche d'indices. Parmi les vieux grimoires et les artefacts étranges, votre main rencontre quelque chose de lisse et solide. En tirant délicatement, vous découvrez une corde soigneusement enroulée. Elle semble être là depuis longtemps, mais elle est étrangement intacte.
+Avec précaution, vous enroulez la corde autour de vos épaules, sachant qu'elle pourrait vous être utile à l'avenir.
+Maintenant équipée de cette corde, vous retournez votre attention vers les portes énigmatiques qui vous entourent. Chacune offre une promesse différente, mais aussi un mystère à démêler.
+Quelle porte choisirez-vous cette fois-ci ?
+---SIMPLE
+La Porte du Lapin Blanc : “Le temps est précieux ici.” [5]
+
+
+#5 La Porte du Lapin Blanc
+Vous franchissez la porte du Lapin Blanc et vous vous retrouvez miraculeusement dans une forêt dense. Ici, il fait nuit claire, le ciel est parsemé d'étoiles scintillantes qui illuminent les branches tordues des arbres. Une légère brise agite les feuilles, créant un doux murmure dans l'air.
+Alors que vous vous émerveillez devant ce spectacle céleste, une ombre blanche surgit au loin. C'est le Lapin Blanc, sa montre à gousset à la main. Il court avec une hâte frénétique, ses longues oreilles battant au rythme de ses pas pressés. Dans son empressement, il fait tomber sa montre, qui glisse de sa main pour étinceler brièvement à la lumière des étoiles.
+---SIMPLE
+Observer les étoiles [15]
+Suivre le Lapin Blanc [14]
+
+
+#14 Le Buisson de Roses
+En voulant rattraper le Lapin Blanc, vous trébuchez sur un buisson de roses, sentant leurs épines griffer vos bras. Les roses rouges et blanches semblent s'animer, leurs pétales se referment comme des mâchoires. "Pourquoi me marches-tu dessus ?" chuchote l’une d’elles, leur conscience évidente vous frappe. Que faites-vous ?
+
+
+#15 Le Ciel Étoilé
+Vous vous allongez dans l’herbe et contemplez le ciel. Les étoiles scintillent intensément, formant des constellations étranges. Vous reconnaissez Orion, mais il a une jambe de plus. La Grande Ourse ressemble à un chat endormi. Soudain, une étoile filante traverse le ciel. Que souhaitez-vous ?
+---SIMPLE
+Faire un vœu [41]
+Observer les étoiles plus attentivement [42]
+
+
+#41 Le Vœu sous les Étoiles
+Vous fermez les yeux et formulez un vœu silencieux, laissant votre esprit se fondre dans l'immensité du ciel étoilé. Vous vous sentez connectée à cet univers fantastique, où les désirs peuvent se matérialiser. Une sensation de paix vous enveloppe alors que vous attendez, espérant que votre souhait soit entendu.
+Un léger bruissement attire votre attention alors que vous êtes plongée dans la contemplation du ciel étoilé. Vous ressentez une présence proche, presque imperceptible. Instinctivement, vous vous préparez à toute éventualité.
+Juste au moment où vous ouvrez les yeux, une forme bondit dans votre direction. Sans perdre une seconde, vous roulez habilement sur le côté, esquivant de justesse l'attaque surprise. Vous vous redressez rapidement, prête à affronter votre potentiel ennemi.
+Devant vous, un mystérieux chat flotte, un sourire malicieux étirant ses traits. 
+-"Bravo, Alice," murmure-t-il, ses yeux brillants d'admiration. 
+-"Votre réactivité est impressionnante."
+Vous vous sentez soulagée d'avoir évité de justesse cette attaque, mais également fière d'avoir démontré votre habileté en esquive. L’énigmatique chat semble apprécier votre agilité, et cela vous donne confiance pour la suite de votre aventure.
+---SIMPLE
+Engager une conversation avec le chat [43]
+---
+HABILETE +1
+
+
+#42 Les Constellations
+Vous scrutez attentivement le ciel étoilé, cherchant parmi les constellations familières que vous avez apprises dans un vieux livre de la bibliothèque chez vos parents. Orion, Cassiopée, la Grande Ourse... Mais quelque chose semble différent ce soir. Les étoiles sont déformées, tordues dans des formes inattendues, défiant les lois de l'astronomie. Après cette longue réflexion, vous vous sentez un peu plus intelligente.
+Plongée dans vos pensées, vous êtes brusquement tirée de vos observations par une présence discrète qui se profile derrière vous. Sans que vous en ayez eu conscience, un chat énigmatique s'approchait furtivement, sa silhouette se dessinant dans l'ombre. Quand il surgit devant vous, son sourire flottant dans l'obscurité tel un croissant de lune, vous sursautez violemment.
+"Bonjour, Alice," murmure-t-il doucement, ses yeux brillant d'une lueur malicieuse. "Vous semblez chercher quelque chose."
+Vous vous sentez à la fois étonnée par sa soudaine apparition et curieuse de savoir ce qu'il a à dire. Peut-être détient-elle des réponses à vos questions sur les étoiles étrangement déformées dans le ciel de ce monde fantastique.
+---SIMPLE
+Engager une conversation avec le chat [43]
+---
+INTELLIGENCE +1
+
+
+#43 Rencontre avec le Chat du Cheshire
+Vous décidez d'engager une conversation avec le mystérieux chat, curieux de découvrir ce qu'il a à dire. Il vous observe avec ses yeux brillants, un sourire en coin flottant sur son visage insaisissable.
+"Bienvenue, voyageuse," dit-il d’une voix mélodieuse. "Je suis le Chat du Cheshire, gardien des chemins cachés. Je suis curieux de connaître vos compétences, Alice," annonce-t-il alors d'un ton taquin.
+"Prouvez-moi que vous êtes digne de continuer votre voyage en me montrant votre habileté. Vous voyez cette branche suspendue au-dessus de nous ? Je vous défie de l'atteindre en un seul saut. Montrez-moi ce que vous valez."
+Vous regardez la branche, haute et éloignée, et évaluez vos compétences. Vous savez que votre habileté pourrait vous aider dans cette tâche. Que choisissez-vous de faire ?
+---SIMPLE
+Tenter le saut avec détermination [44]
+Chercher un moyen alternatif d'atteindre la branche [45]
+(CORDE=1) Utiliser la corde dans votre inventaire [46]
+
+
+#44 Le Saut de l’Audace
+Vous acceptez le défi du Chat du Cheshire avec détermination, prête à prouver votre habileté dans ce monde étrange. Vous fixez la branche suspendue au-dessus de vous, évaluant mentalement la distance et la hauteur, préparée à sauter.
+Vous vous concentrez, vous vous élancez, propulsée par la confiance en vos capacités. Votre corps se tend, vos muscles se contractent alors que vous vous envolez vers la branche, espérant l'atteindre avec succès.
+---DE
+(DE<HABILETE) [47]
+(sinon) [48]
+
+
+#45 La Quête de l’Ingéniosité
+Vous sentez une pointe de stress envahir votre esprit en fixant la branche suspendue au-dessus de vous. Vous la trouvez bien trop haute pour un simple saut. Votre cœur bat un peu plus vite alors que vous vous mettez à scruter fébrilement l'environnement à la recherche d'une solution alternative.
+Votre regard balaye chaque détail de votre entourage, cherchant désespérément un moyen ingénieux d'atteindre la branche sans risquer une chute. Votre esprit, bien qu'un peu troublé par l'urgence de la situation, analyse rapidement les possibilités qui s'offrent à vous.
+Soudain, une idée commence à germer dans votre esprit. Des branches basses tordues, une saillie rocheuse à proximité... Peut-être qu'en combinant ces éléments avec un peu de dextérité, vous pourrez atteindre votre objectif sans avoir à sauter directement.
+Avec une détermination renouvelée, vous vous lancez dans la résolution de ce nouveau défi, votre esprit embrumé par le stress mais néanmoins déterminé à trouver une solution.
+---DE
+(DE<INTELLIGENCE) [49]
+(sinon) [50]
+
+
+#46 Une Échelle de Fortune
+Vous acceptez le défi du Chat du Cheshire avec détermination, mais au lieu de compter uniquement sur votre agilité ou votre intelligence, vous décidez d'utiliser un objet de votre inventaire pour vous aider. Vous saisissez la corde que vous avez dans votre sac et la jetez habilement autour de la branche, créant ainsi une échelle improvisée.
+La corde se noue solidement, vous offrant un moyen sûr de grimper jusqu'à la branche. Vous escaladez avec précaution, utilisant la corde comme support, et atteignez la branche avec succès, évitant ainsi le saut risqué.
+---SIMPLE
+Se retourner fièrement vers le chat [51]
+---
+HABILETE +1
+INTELLIGENCE +1
+CORDE -1
+
+
+#47 Le Saut de l’Audace (réussite)
+Votre saut est gracieux, presque parfait. Vous vous hissez habilement jusqu'à la branche, vos doigts s'accrochant fermement à son écorce rugueuse. Vous vous balancez un instant, savourant votre succès, avant de vous hisser sur la branche avec aisance. Vous souriez, fier de votre exploit, et vous tournez vers le Chat du Cheshire avec un regard triomphant.
+---SIMPLE
+Se retourner fièrement vers le chat [52]
+---
+HABILETE +1
+
+
+#48 Le Saut de l’Audace (échec)
+Votre saut manque de fluidité, vos mains touchant à peine la base de la branche. Vous sentez votre cœur battre la chamade alors que vous réalisez que vous ne parviendrez pas à atteindre votre objectif. Vous retombez lourdement au sol
+---SIMPLE
+Se retourner déçue vers le chat [54]
+
+
+#49 La Quête de l’Ingéniosité (réussite)
+Avec une concentration sans faille et des gestes calculés, vous vous agrippez aux branches avoisinantes, vous servant de leur solidité pour grimper lentement mais sûrement vers votre objectif.
+Vos muscles tendus par l'effort, vous vous frayez un chemin avec assurance à travers le dédale de branches et de roches. Chaque mouvement est précis, chaque décision est mûrement réfléchie alors que vous vous rapprochez inexorablement de la branche tant convoitée.
+Finalement, après un effort soutenu et plein de persévérance, vous parvenez à atteindre votre but. Vous vous trouvez maintenant sur la branche, votre cœur battant la chamade mais empli de fierté. Votre esprit agile a triomphé du défi, démontrant ainsi votre capacité à surmonter les obstacles avec ingéniosité.
+Savourant votre victoire, vous prenez un moment pour contempler le paysage qui s'étend sous vos pieds, rempli d'une satisfaction indescriptible. Vous savez maintenant qu'avec de l'intelligence et de la détermination, vous êtes capable de surmonter n'importe quelle épreuve dans ce monde étrange et merveilleux.
+---SIMPLE
+Se retourner fièrement vers le chat [53]
+
+
+#50 La Quête de l’Ingéniosité (échec)
+Malgré tous vos efforts et votre détermination, vous réalisez rapidement que la branche est hors de portée. Vous essayez différentes approches, mais chaque tentative se solde par un échec. Les branches voisines sont trop fragiles ou trop éloignées, et aucune prise ne semble suffisamment solide pour supporter votre poids.
+La frustration grandit en vous alors que vous réalisez que votre plan initial ne fonctionnera pas. Votre esprit agité cherche désespérément une solution alternative, mais chaque idée qui vous vient semble être vouée à l'échec.
+Après plusieurs tentatives infructueuses, vous vous résignez finalement à abandonner. Le cœur lourd, vous descendez lentement de l'arbre, consciente de votre défaite. Cependant, malgré cet échec, vous comprenez que chaque tentative vous a permis d'apprendre quelque chose de nouveau, et vous êtes déterminée à ne pas laisser cette expérience vous décourager.
+Vous vous promettez de revenir plus forte, plus sage et plus préparée à affronter les défis à venir. Car dans ce monde étrange et merveilleux, même les échecs peuvent être une précieuse leçon, vous aidant à grandir et à devenir plus forte.
+---SIMPLE
+Se retourner déçue vers le chat [54]
+
+
+#51 La Révélation du Chat
+Le Chat du Cheshire vous adresse un sourire approbateur, semblant apprécier votre démonstration d'ingéniosité. "Impressionnant, Alice," dit-il, "vous avez prouvé votre valeur. Pour votre exploit, je vous révèle un indice crucial pour votre quête. Suivez l’Étoile Inversée pour trouver la Clé du Labyrinthe des Miroirs. Elle vous mènera sur le bon chemin."
+À ces mots, le chat disparaît lentement, laissant uniquement son sourire lumineux apparaître, avant de vous laisser définitivement seule avec cette information.
+Vous vous sentez fière de votre réussite et reconnaissant envers le Chat pour cette précieuse information. Vous prenez note de son conseil et vous vous sentez plus confiante dans votre voyage à venir.
+---SIMPLE
+Chercher dans le ciel l’Étoile Inversée [200]
+
+
+#52 La Révélation du Chat
+Le Chat vous adresse un sourire approbateur, ses yeux brillant d'une lueur malicieuse. "Impressionnant, Alice," dit-il, "vous avez prouvé votre habileté. Pour votre exploit, je vous récompense en vous révélant un indice crucial pour votre quête. Suivez les étoiles inversées pour trouver la Clé du Labyrinthe des Miroirs. Elles vous mèneront sur le bon chemin."
+À ces mots, le chat disparaît lentement, laissant uniquement son sourire lumineux apparaître, avant de vous laisser définitivement seule avec cette information.
+Vous vous sentez fière de votre réussite et reconnaissant envers le Chat pour cette précieuse information. Vous prenez note de son conseil et vous vous sentez plus confiant dans votre voyage à venir.
+---SIMPLE
+Chercher dans le ciel l’Étoile Inversée [200]
+
+
+#53 La Révélation du Chat
+Le Chat vous adresse un sourire approbateur, ses yeux brillant d'une lueur malicieuse. "Impressionnant, Alice," dit-il, "vous avez prouvé votre intelligence. Pour votre exploit, je vous récompense en vous révélant un indice crucial pour votre quête. Suivez les étoiles inversées pour trouver la Clé du Labyrinthe des Miroirs. Elles vous mèneront sur le bon chemin."
+À ces mots, le chat disparaît lentement, laissant uniquement son sourire lumineux apparaître, avant de vous laisser définitivement seule avec cette information.
+Vous vous sentez fière de votre réussite et reconnaissant envers le Chat pour cette précieuse information. Vous prenez note de son conseil et vous vous sentez plus confiant dans votre voyage à venir.
+---SIMPLE
+Chercher dans le ciel l’Étoile Inversée [200]
+
+
+#54 La Révélation du Chat
+Le Chat du Cheshire vous observe avec une lueur de curiosité dans les yeux. "Peut-être que vous avez besoin d'un peu plus de pratique, Alice," dit-il d'une voix douce. "Mais ne vous en faites pas, même les plus grands aventuriers font face à des défis. Pour votre persévérance, je vais vous révéler un indice important. Suivez les étoiles inversées pour trouver la Clé du Labyrinthe des Miroirs. Elles vous guideront à travers les ténèbres."
+Vous acceptez ses paroles avec humilité, reconnaissant la sagesse dans ses conseils. Même si vous n'avez pas réussi cette fois-ci, vous savez que chaque épreuve vous rapproche de votre objectif.
+À ces mots, le chat disparaît lentement, laissant uniquement son sourire lumineux apparaître, avant de vous laisser définitivement seule avec cette information.
+---SIMPLE
+Chercher dans le ciel l’Étoile Inversée [200]
+
+
+#200 L'Étoile inversée
+Vous observez les constellations dans le ciel nocturne. Vous remarquez qu’Orion a une jambe de plus, la Grande Ourse ressemble à un chat endormi. Soudain, vous remarquez une étoile inversée et plus brillante que les autres. 
+---
+Vous marchez en direction de l’étoile [201]
+
+
+#201 La Clé du Labyrinthe des Miroirs
+Après une longue marche les yeux rivés sur l’étoile, vous trouvez une clairière jonchée de mille fleurs blanches, et en son sein, un étrange objet scintillant. 
+Vous vous approchez avec prudence de l'objet, il s’agit d’une clé. En tendant la main, vous la saisissez, sentant son énergie magique chatouiller vos doigts.
+Elle est ornée de motifs complexes et de symboles mystérieux, rayonnant d'une aura de pouvoir. Vous savez que cette clé est la clé de votre destinée, le moyen de trouver votre chemin à travers les dédales du Labyrinthe des Miroirs qui se dresse devant vous et d’enfin pouvoir sortir de ce monde de bizarreries.
+Avec la clé en votre possession, vous vous sentez plus déterminée que jamais à poursuivre votre quête à travers le Pays des Merveilles.
+Trois entrées du labyrinthe vous font face, quel chemin empruntez-vous ?*
+---SIMPLE
+Gauche [205]
+Milieu [208]
+
+
+#205 Le Château de la Reine de Cœur
+Vous décidez de tourner à gauche et de suivre le chemin qui s'étend devant vous. Au fur et à mesure que vous avancez, les miroirs déformants reflètent des images étranges et troublantes, mais vous restez concentrée sur votre objectif.
+Finalement au bout du chemin vous tenez devant le majestueux Château de la Reine de Cœur, prête à affronter ce qui vous attend à l'intérieur. Vous pénétrez dans les jardins luxuriants, où les roses rouges et les cartes à jouer géantes créent une atmosphère irréelle.
+La Reine de Cœur vous attend au sommet des marches du château, son regard scrutateur fixé sur vous. Elle vous accueille d'un ton impérieux, demandant votre présence à ses côtés :
+- "Ah, Alice," dit-elle d'une voix forte,
+- "Je suis ravie de vous rencontrer enfin. Mais avant que vous puissiez continuer votre voyage à travers mon royaume, vous devez réussir un défi."
+Elle vous désigne une table où est posé un plateau de croquet, les maillets et les balles attendant d'être utilisés. "Vous devez battre mes champions au jeu de croquet. Seulement alors vous serez digne de ma faveur."
+Vous êtes confronté à un choix crucial :
+---SIMPLE
+Accepter le défi de la Reine de Cœur et affronter ses champions au jeu de croquet. [206]
+Tenter de vous échapper et d’éviter le défi proposé par la Reine. [207]
+
+
+#206 Le défi de Croquet
+Vous acceptez le défi de la Reine de Cœur, sachant que cela pourrait être une entreprise périlleuse. Vous vous approchez de la table de croquet, où les champions de la Reine attendent avec des expressions dédaigneuses.
+La Reine de Cœur vous observe avec un sourire narquois, ses yeux perçants scrutant chaque geste que vous faites. 
+-"Ah, Alice," dit-elle d'une voix cinglante, "vous pensez pouvoir rivaliser avec mes champions ? Nous allons voir cela."
+Le jeu de croquet commence, et vous lancez la balle avec habileté, visant les arceaux avec précision. Les champions de la Reine vous lancent des regards méprisants, mais vous êtes déterminée à prouver votre valeur.
+---DE
+(DE<HABILETE)[211]
+(sinon)[210]
+
+
+#207 La fuite du Château de la Reine de Cœur
+Face au défi lancé par la Reine de Cœur, vous décidez de tenter de vous échapper plutôt que de risquer un affrontement direct avec ses champions. Vous esquissez un sourire déterminé alors que vous vous tournez pour prendre la fuite, sachant que cela ne sera pas facile.
+Vous commencez à courir à travers les jardins du château, votre cœur battant la chamade alors que vous entendez les pas lourds des gardes de la Reine qui vous poursuivent. Vous vous frayez un chemin à travers les buissons et les haies, cherchant désespérément une issue.
+Soudain, vous atteignez une impasse, et les gardes vous encerclent de toutes parts. Vous n'avez d'autre choix que de faire face à eux, prête à utiliser tous les moyens nécessaires pour vous défendre.
+---COMBAT
+Les Soldats de la Reine de Cœur
+[216]
+[211]
+
+
+#210 Vous battez les Soldats de la Reine
+Vous jouez avec adresse et détermination, surprenant même les champions de la Reine de Cœur par votre habileté au jeu de croquet. Vous parvenez à remporter la partie, frappant les balles avec une précision chirurgicale.
+La Reine de Cœur, visiblement contrariée par votre victoire, réprime à peine sa colère. -"Vous avez eu de la chance, Alice," dit-elle d'une voix froide.
+- "Mais ne pensez pas que cela vous permettra de vous soustraire à ma surveillance."
+Elle vous donne des indications sur la façon de naviguer à travers le château et de trouver la sortie. 
+-"Partez maintenant," ordonne-t-elle, 
+-"et rappelez-vous que je vous ai à l'œil."
+Vous quittez le château de la Reine de Cœur, sentant son regard perçant vous suivre même après avoir franchi ses portes.
+---SIMPLE
+Sortir du Château [216]
+
+
+#211 Captivité dans les Cachots du Château
+Malheureusement, malgré votre courage et votre détermination, les gardes de la Reine de Cœur se révèlent être des adversaires redoutables. Leurs assauts sont implacables, et vous vous retrouvez rapidement submergée par leur nombre et leur force.
+Blessée et épuisée, vous êtes finalement maîtrisée par les gardes qui vous entraînent violemment vers les sombres cachots du château de la Reine de Cœur. Vous sentez le poids de votre défaite alors que vous êtes poussée dans les profondeurs de la prison, vos chances de survie de plus en plus minces.
+Dans les ténèbres des cachots, vous attendez votre destinée avec appréhension. Vous savez que la Reine de Cœur ne tolère pas les échecs, et que votre sort est scellé. La perspective de l'exécution imminente pèse lourdement sur votre esprit, et vous vous demandez si vous aurez la force de faire face à ce qui vous attend.
+Votre aventure dans le Pays des Merveilles a pris une tournure sombre et désespérée. Vous êtes maintenant une captive du cruel régime de la Reine de Cœur, sachant que vous allez être décapitée ou bien rester pour toujours dans les profondeurs de son château oppressant.
+
+
+#216 Retour au Monde Réel
+Après avoir triomphé du défi de la Reine de Cœur, vous suivez avec diligence les indications qu'elle vous a fournies pour trouver votre chemin à travers le dédale du château. Les couloirs sombres et tortueux semblent se tordre et se déformer autour de vous, mais vous restez concentré sur votre objectif.
+Finalement, vous arrivez à une porte massive ornée de motifs complexes. Vous sortez la clé que la Reine de Cœur vous a confiée et l'insérez dans la serrure avec précaution. Un cliquetis satisfaisant résonne dans le couloir alors que la porte s'ouvre lentement, révélant un éclat de lumière vive au-delà.
+Vous franchissez le seuil avec hésitation, vous sentant à la fois excitée et anxieuse à l'idée de retrouver le monde réel. Le paysage familier se dévoile devant vous, avec ses couleurs vives et ses sons familiers. Vous respirez profondément, savourant l'air frais qui remplit vos poumons.
+Avec un dernier regard en arrière sur le Pays des Merveilles, vous prenez une profonde inspiration et franchissez le seuil, prête à affronter les défis qui vous attendent dans le monde réel.
+Votre aventure dans le Pays des Merveilles touche à sa fin, mais vous savez que de nouvelles aventures vous attendent au-delà de ses frontières. Et où que la vie vous mène, vous emporterez toujours avec vous les merveilles et les leçons de ce monde fantastique.
+
+
+#208 Le dilemme de la Chenille
+Vous choisissez de continuer tout droit, suivant le chemin éclairé qui s'étend devant vous. Les miroirs déformants vous entourent toujours, projetant des reflets étranges de vous-même alors que vous progressez dans le labyrinthe.
+Finalement, vous arrivez devant un grand champ verdoyant où une épaisse fumée s'élève doucement. Au centre du champ se trouve une énorme chenille bleue, vêtue d’un long manteau de cuir et une paire de lunettes de soleil, en train de fumer tranquillement son narguilé.
+La Chenille vous accueille d'un ton calme. Elle semble connaître beaucoup de choses sur le Pays des Merveilles.
+Vous expliquez votre présence ici, et la chenille incline la tête, apparemment sachant déjà tout de vous. "Si tu veux continuer ton voyage à travers ce monde, tu dois d'abord répondre à cette énigme," déclare-t-elle d'une voix grave.
+-”Je suis un champignon que l'on trouve souvent caché sous les feuilles dans les forêts sombres. Ma tête est recouverte d'un chapeau brunâtre, souvent parsemé de petites taches blanches. Mes lamelles sont serrées et blanches, et je dégage une odeur agréable et terreux. Certains disent que je suis un délice dans les plats cuisinés. Qui suis-je ?”
+---ENIGME
+Champignon de Paris
+Répondre à l’énigme [250]
+
+
+#250 Le choix des Champignons
+Vous choisissez de répondre à l'énigme posée par la Chenille. Après un moment de réflexion, vous répondez avec confiance :
+-"Le champignon que vous décrivez est le champignon de Paris."
+La Chenille vous observe attentivement, puis hoche la tête avec approbation. 
+-"Bien joué, jeune voyageuse," dit-elle d'une voix grave. 
+-"Tu as résolu l'énigme avec brio."
+Elle vous guide ensuite vers une nouvelle épreuve. Devant vous, deux champignons sont disposés, l'un d'une couleur rouge éclatante et l'autre d'un bleu vif. La Chenille vous explique : 
+-"Parmi ces deux champignons se trouve celui qui te conduira vers la sortie, et l'autre te plongera dans une folie éternelle. Choisis avec sagesse."
+---SIMPLE
+Choisir le champignon rouge [212]
+Choisir le champignon bleu [213]
+
+
+#213 : Folie éternelle
+Intriguée par l'énigme de la chenille, vous décidez de choisir le champignon bleu. Après tout, le bleu est souvent associé à la douceur et à la fraîcheur, ce qui pourrait suggérer qu'il est sucré.
+Vous cueillez le champignon bleu et le portez à vos lèvres, le goût amer emplit immédiatement votre bouche. Vous reculez, réalisant votre erreur trop tard. La chenille émet un rire caverneux alors que vous sentez la réalité se dissoudre autour de vous.
+Des visions tourbillonnantes envahissent votre esprit, vous plongeant dans un tourbillon de folie et de confusion. Les murs du labyrinthe semblent se tordre et se déformer autour de vous.
+Perdue dans un dédale de délires et de cauchemars, Alice erre sans fin dans les méandres du labyrinthe, ses pensées tourmentées par des visions fantasmagoriques et des illusions déroutantes. Les murs semblent se resserrer autour d'elle, l'emportant dans un enchevêtrement inextricable de doutes et de peurs.
+Au fil du temps, la conscience d'Alice se fond avec les recoins les plus sombres du Pays des Merveilles, emprisonnée à jamais dans un tourment éternel. Son nom devient une légende, une histoire sombre racontée aux enfants pour les mettre en garde contre les dangers de la folie.
+Et tandis que le temps s'écoule inexorablement, le souvenir d'Alice se perd dans les méandres de l'histoire, une tragédie oubliée dans les annales du Pays des Merveilles, condamnée à errer pour l'éternité dans les recoins les plus sombres de l'imagination humaine.
+
+
+#212 Retour au monde réel
+Réfléchissant soigneusement à l'énigme de la chenille, vous décidez finalement de choisir le champignon rouge. Vous avez un pressentiment que c'est le bon choix, et votre instinct vous guide vers lui.
+Vous cueillez le champignon rouge et le portez à vos lèvres, anticipant avec appréhension le goût sucré qu'il devrait avoir. À votre grande surprise, le champignon est effectivement sucré, libérant une explosion de saveurs délicieuses dans votre bouche.
+Alors que vous savourez la douceur du champignon, une vision soudaine vous envahit. Vous voyez un chemin sinueux se dérouler devant vous, éclairé par une lueur dorée qui mène vers la sortie du labyrinthe. Vous savez instinctivement que c'est le chemin à suivre.
+Guidée par la vision, vous suivez le chemin avec détermination, surmontant les obstacles et les défis qui se dressent sur votre route. Finalement, vous atteignez la sortie du labyrinthe, le monde réel s'ouvrant devant vous dans toute sa splendeur.
+Avec un sourire de satisfaction, vous franchissez le seuil, laissant derrière vous le Pays des Merveilles et retournant à votre vie normale. Votre aventure dans ce monde fantastique prend fin, mais les souvenirs et les leçons que vous avez appris resteront gravés dans votre esprit pour toujours.
