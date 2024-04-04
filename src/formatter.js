@@ -8,30 +8,30 @@
  * @param {import("@prisma/client").Action} data
  */
 export function formatAction(data) {
-    const action = {
-        destination: data.idDestination,
-        label: data.label,
-    };
+  const action = {
+    destination: data.idDestination,
+    label: data.label,
+  };
 
-    if (data.actionCombat) {
-        action.type = "COMBAT";
-        action.destinationEchec = data.actionCombat.idDestinationEchec;
-    } else if (data.actionSimple) {
-        action.type = "SIMPLE";
-    } else if (data.actionCondition) {
-        action.type = "CONDITION";
-        action.condition = data.actionCondition.condition;
-    } else if (data.actionEnigme) {
-        action.type = "ENIGME";
-        action.reponse = data.actionEnigme.reponse;
-    } else if (data.actionDe) {
-        action.type = "DE";
-        action.destinsationEchat = data.actionDe.idDestinationEchec;
-    } else {
-        throw new Error(`Action ${data.id} has no type`);
-    }
+  if (data.actionCombat) {
+    action.type = "COMBAT";
+    action.destinationEchec = data.actionCombat.idDestinationEchec;
+  } else if (data.actionSimple) {
+    action.type = "SIMPLE";
+  } else if (data.actionCondition) {
+    action.type = "CONDITION";
+    action.condition = data.actionCondition.condition;
+  } else if (data.actionEnigme) {
+    action.type = "ENIGME";
+    action.reponse = data.actionEnigme.reponse;
+  } else if (data.actionDe) {
+    action.type = "DE";
+    action.destinsationEchat = data.actionDe.idDestinationEchec;
+  } else {
+    throw new Error(`Action ${data.id} has no type`);
+  }
 
-    return action;
+  return action;
 }
 
 /**
@@ -39,11 +39,11 @@ export function formatAction(data) {
  * @param {import("@prisma/client").Section} data
  */
 export function formatSection(data) {
-    return {
-        titre: data.titre,
-        texte: data.texte,
-        actions: data.actions.map(formatAction),
-    };
+  return {
+    titre: data.titre,
+    texte: data.texte,
+    actions: data.actions.map(formatAction),
+  };
 }
 
 /**
@@ -51,11 +51,11 @@ export function formatSection(data) {
  * @param {import("@prisma/client").Variable} data
  */
 export function formatVariable(data) {
-    return {
-        nom: data.nom,
-        valeurInitiale: data.valeurInitale,
-        type: data.type,
-    };
+  return {
+    nom: data.nom,
+    valeurInitiale: data.valeurInitale,
+    type: data.type,
+  };
 }
 
 /**
@@ -63,12 +63,24 @@ export function formatVariable(data) {
  * @param {import("@prisma/client").Livre} data
  */
 export function formatBook(data) {
-    return {
-        id: data.id,
-        description: data.description,
-        couverture: data.couverture,
-        nom: data.nom,
-        slug: data.slug,
-        variables: data.variables.map(formatVariable),
-    };
+  return {
+    id: data.id,
+    description: data.description,
+    couverture: data.couverture,
+    nom: data.nom,
+    slug: data.slug,
+    variables: data.variables.map(formatVariable),
+  };
+}
+
+/**
+ * Met en forme une enigme
+ * @param {import("@prisma/client").ActionEnigme} data
+ */
+export function formatEnigme(data) {
+  return {
+    id: data.id,
+    reponse: data.reponse,
+    idAction: data.idAction,
+  };
 }
