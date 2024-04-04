@@ -118,7 +118,6 @@ async function main() {
             } else {
               simpleTab.push(actionRow);
             }
-            simpleTab.push(actionRow);
             break;
           case "ENIGME":
             actionRow = {
@@ -172,7 +171,7 @@ async function main() {
   /*
     Insertion Action Simples
   */
-
+  // console.log(simpleTab);
   const actionsSimpleInserted = await Promise.all(
     simpleTab.map((a) => {
       return prisma.actionSimple
@@ -211,7 +210,7 @@ async function main() {
   /*
     Insertion Action Enigme
   */
-
+  console.log(enigmesTab);
   const actionsEnigmeInserted = await Promise.all(
     enigmesTab.map((a) => {
       return prisma.actionEnigme
