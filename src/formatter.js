@@ -26,7 +26,8 @@ export function formatAction(data) {
     action.reponse = data.actionEnigme.reponse;
   } else if (data.actionDe) {
     action.type = "DE";
-    action.destinsationEchat = data.actionDe.idDestinationEchec;
+    action.destinationEchec = data.actionDe.idDestinationEchec;
+    action.seuil = data.actionDe.seuil;
   } else {
     throw new Error(`Action ${data.id} has no type`);
   }

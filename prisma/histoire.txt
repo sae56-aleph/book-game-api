@@ -172,7 +172,7 @@ Chercher dans le ciel l’Étoile Inversée [200]
 
 #200 L'Étoile inversée
 Vous observez les constellations dans le ciel nocturne. Vous remarquez qu’Orion a une jambe de plus, la Grande Ourse ressemble à un chat endormi. Soudain, vous remarquez une étoile inversée et plus brillante que les autres. 
----
+---SIMPLE
 Vous marchez en direction de l’étoile [201]
 
 

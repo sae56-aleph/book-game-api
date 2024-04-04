@@ -1,4 +1,3 @@
-import { PrismaClient } from "@prisma/client";
 import express from "express";
 import {
   findBookBySlug,
@@ -25,6 +24,11 @@ function sendNotFound(res) {
   res.json({ message: "Not found" });
   return res;
 }
+
+app.use((req, res, next) => {
+  res.set("Access-Control-Allow-Origin", "*");
+  next();
+});
 
 app.get("/section/:id", async (req, res) => {
   const id = parseInt(req.params.id);
