@@ -38,6 +38,7 @@ model Section {
 
 model Variable {
   id            Int            @id @default(autoincrement())
+  nom           String
   valeurInitale Int
   type          TypeVariable
   livre         Livre          @relation(fields: [idLivre], references: [id])

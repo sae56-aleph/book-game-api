@@ -1,6 +1,25 @@
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 const fs = require("node:fs/promises");
+const { after } = require("node:test");
+
+function getTypeVarMaj(row) {
+  return row.match("[A-z]*")[0];
+}
+
+function getQuantiteVarChange(row) {
+  let res = "";
+  let detected = false;
+
+  for (let i = 0; i < row.length; i++) {
+    if (row[i] == "+" || row[i] == "-" || detected) {
+      res += row[i];
+      detected = true;
+    }
+  }
+
+  return parseInt(res);
+}
 
 function getCondition(txt) {
   return getIdDestActionArg(txt, "(", ")");
@@ -49,6 +68,8 @@ async function main() {
   let enigmesTab = [];
   let conditionTab = [];
 
+  let variableMaj = [];
+
   let sections = data.split("#");
   sections.shift();
 
@@ -65,6 +86,20 @@ async function main() {
     let text = aftercontent[0];
 
     let actionArgs = aftercontent[1];
+    if (aftercontent[2]) {
+      let varChange = aftercontent[2];
+      varChangeArr = varChange.split("\n");
+      varChangeArr = varChangeArr.filter((v) => v != "");
+      varChangeArr.map((c) => {
+        let varChangeRow = {
+          numeroSection: id,
+          idVariable: 0,
+          quantite: getQuantiteVarChange(c),
+          type: getTypeVarMaj(c),
+        };
+        variableMaj.push(varChangeRow);
+      });
+    }
     let actionArgsArr = [];
     let action_type = "";
 
@@ -106,8 +141,6 @@ async function main() {
           idOrigine: id,
           idDestination: getIdDestActionArg(a),
         };
-
-        // actionTab.push(actionRow);
 
         switch (action_type) {
           case "SIMPLE":
@@ -153,6 +186,58 @@ async function main() {
   });
 
   /*
+    Insertion Variable Habileté
+  */
+
+  const habilete = await prisma.variable.create({
+    data: {
+      valeurInitale: 3,
+      nom: "Habileté",
+      type: "Statistique",
+      idLivre: livre.id,
+    },
+  });
+
+  /*
+    Insertion Variable Force
+  */
+
+  const force = await prisma.variable.create({
+    data: {
+      valeurInitale: 3,
+      nom: "Force",
+      type: "Statistique",
+      idLivre: livre.id,
+    },
+  });
+
+  /*
+    Insertion Variable Intelligence
+  */
+
+  const intelligence = await prisma.variable.create({
+    data: {
+      valeurInitale: 3,
+      nom: "Force",
+      type: "Statistique",
+      idLivre: livre.id,
+    },
+  });
+
+  /*
+    Insertion Variable Corde
+  */
+
+  const corde = await prisma.variable.create({
+    data: {
+      valeurInitale: 0,
+      nom: "Corde",
+      type: "Inventaire",
+      idLivre: livre.id,
+    },
+  });
+
+  /*
     Insertion sections
   */
 
@@ -169,9 +254,50 @@ async function main() {
   });
 
   /*
+    Insertion maj variables
+  */
+
+  const majvar = await Promise.all(
+    variableMaj.map((v) => {
+      switch (v.type) {
+        case "HABILETE":
+          v.idVariable = habilete.id;
+          break;
+        case "INTELLIGENCE":
+          v.idVariable = intelligence.id;
+          break;
+        case "FORCE":
+          v.idVariable = force.id;
+          break;
+        case "CORDE":
+          v.idVariable = corde.id;
+          break;
+      }
+
+      return prisma.miseAJourVar.create({
+        data: {
+          quantite: v.quantite,
+          section: {
+            connect: {
+              uniqNumero: {
+                idLivre: livre.id,
+                numero: parseInt(v.numeroSection),
+              },
+            },
+          },
+          variable: {
+            connect: {
+              id: v.idVariable,
+            },
+          },
+        },
+      });
+    })
+  );
+
+  /*
     Insertion Action Simples
   */
-  // console.log(simpleTab);
   const actionsSimpleInserted = await Promise.all(
     simpleTab.map((a) => {
       return prisma.actionSimple
@@ -210,7 +336,6 @@ async function main() {
   /*
     Insertion Action Enigme
   */
-  console.log(enigmesTab);
   const actionsEnigmeInserted = await Promise.all(
     enigmesTab.map((a) => {
       return prisma.actionEnigme
