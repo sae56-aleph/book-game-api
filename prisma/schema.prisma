@@ -11,6 +11,8 @@ model Livre {
   id          Int    @id @default(autoincrement())
   description String
   couverture  String
+  nom         String
+  slug        String @unique
   idIntro     Int?   @unique
 
   variables Variable[]
@@ -74,7 +76,7 @@ model Action {
   actionCondition ActionCondition?
   actionCombat    ActionCombat?
   actionDe        ActionDe?
-  ActionEnigme    ActionEnigme?
+  actionEnigme    ActionEnigme?
 }
 
 model ActionSimple {
