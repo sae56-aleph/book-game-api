@@ -23,3 +23,12 @@ export function findSectionById(id) {
         },
     });
 }
+
+export function findBookBySlug(slug) {
+    return prisma.livre.findUnique({
+        where: { slug },
+        include: {
+            variables: true,
+        },
+    });
+}

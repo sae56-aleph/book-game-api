@@ -35,7 +35,7 @@ export function formatAction(data) {
 }
 
 /**
- * Met en forme une
+ * Met en forme une section
  * @param {import("@prisma/client").Section} data
  */
 export function formatSection(data) {
@@ -43,5 +43,32 @@ export function formatSection(data) {
         titre: data.titre,
         texte: data.texte,
         actions: data.actions.map(formatAction),
+    };
+}
+
+/**
+ * Met en forme une variable
+ * @param {import("@prisma/client").Variable} data
+ */
+export function formatVariable(data) {
+    return {
+        nom: data.nom,
+        valeurInitiale: data.valeurInitale,
+        type: data.type,
+    };
+}
+
+/**
+ * Met en forme un livre
+ * @param {import("@prisma/client").Livre} data
+ */
+export function formatBook(data) {
+    return {
+        id: data.id,
+        description: data.description,
+        couverture: data.couverture,
+        nom: data.nom,
+        slug: data.slug,
+        variables: data.variables.map(formatVariable),
     };
 }

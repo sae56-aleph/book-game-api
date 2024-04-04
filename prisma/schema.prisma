@@ -11,6 +11,8 @@ model Livre {
   id          Int    @id @default(autoincrement())
   description String
   couverture  String
+  nom         String
+  slug        String @unique
   idIntro     Int?   @unique
 
   variables Variable[]

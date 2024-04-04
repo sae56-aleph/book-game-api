@@ -1,7 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import express from "express";
-import { findSectionById } from "./repository.js";
-import { formatSection } from "./formatter.js";
+import { findBookBySlug, findSectionById } from "./repository.js";
+import { formatBook, formatSection } from "./formatter.js";
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -31,6 +31,16 @@ app.get("/section/:id", async (req, res) => {
     } catch (error) {
         return sendError(error);
     }
+});
+
+app.get("/book/:slug", async (req, res) => {
+    const slug = req.params.slug;
+    const bookRaw = await findBookBySlug(slug);
+
+    if (!bookRaw) return sendNotFound(res);
+
+    const book = formatBook(bookRaw);
+    return res.json(book);
 });
 
 app.listen(PORT);

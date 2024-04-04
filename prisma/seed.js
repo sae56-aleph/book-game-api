@@ -1,7 +1,6 @@
-const { PrismaClient } = require("@prisma/client");
+import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
-const fs = require("node:fs/promises");
-const { after } = require("node:test");
+import { readFile } from "node:fs/promises";
 
 function getTypeVarMaj(row) {
     return row.match("[A-z]*")[0];
@@ -51,7 +50,7 @@ function getLabelActionArg(txt) {
 async function main() {
     let data;
     try {
-        data = await fs.readFile("./prisma/histoire.txt", {
+        data = await readFile("./prisma/histoire.txt", {
             encoding: "utf8",
         });
     } catch (err) {
@@ -88,7 +87,7 @@ async function main() {
         let actionArgs = aftercontent[1];
         if (aftercontent[2]) {
             let varChange = aftercontent[2];
-            varChangeArr = varChange.split("\n");
+            let varChangeArr = varChange.split("\n");
             varChangeArr = varChangeArr.filter((v) => v != "");
             varChangeArr.map((c) => {
                 let varChangeRow = {
@@ -182,6 +181,8 @@ async function main() {
             description:
                 "Plongeons dans l’univers fantastique d’Alice aux pays des merveilles, où les lapins blancs parlent, les chapeaux flottent et les tasses de thé organisent des révolutions. Vous, cher aventurier, êtes tombé dans un terrier de lapin et vous vous retrouvez au cœur de ce monde étrange. Votre quête commence ici, avec des choix qui façonneront votre destin. Prêt à jouer ? 🎩🐇",
             couverture: "main_image_alice.png",
+            nom: "Alice au pays des Merveilles",
+            slug: "alice-au-pays-des-merveilles",
         },
     });
 
@@ -192,7 +193,7 @@ async function main() {
     const habilete = await prisma.variable.create({
         data: {
             valeurInitale: 3,
-            nom: "Habileté",
+            nom: "HABILETE",
             type: "Statistique",
             idLivre: livre.id,
         },
@@ -205,7 +206,7 @@ async function main() {
     const force = await prisma.variable.create({
         data: {
             valeurInitale: 3,
-            nom: "Force",
+            nom: "FORCE",
             type: "Statistique",
             idLivre: livre.id,
         },
@@ -218,7 +219,7 @@ async function main() {
     const intelligence = await prisma.variable.create({
         data: {
             valeurInitale: 3,
-            nom: "Force",
+            nom: "INTELLIGENCE",
             type: "Statistique",
             idLivre: livre.id,
         },
@@ -231,7 +232,7 @@ async function main() {
     const corde = await prisma.variable.create({
         data: {
             valeurInitale: 0,
-            nom: "Corde",
+            nom: "CORDE",
             type: "Inventaire",
             idLivre: livre.id,
         },
