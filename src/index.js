@@ -13,6 +13,11 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use((req, res, next) => {
+  res.set("Access-Control-Allow-Origin", "*");
+  next();
+});
+
 function sendError(res, message) {
   res.status(500);
   res.json({ message });
@@ -24,11 +29,6 @@ function sendNotFound(res) {
   res.json({ message: "Not found" });
   return res;
 }
-
-app.use((req, res, next) => {
-  res.set("Access-Control-Allow-Origin", "*");
-  next();
-});
 
 app.get("/section/:id", async (req, res) => {
   const id = parseInt(req.params.id);

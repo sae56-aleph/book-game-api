@@ -43,6 +43,7 @@ model Variable {
   nom           String
   valeurInitale Int
   type          TypeVariable
+  icone         String
   livre         Livre          @relation(fields: [idLivre], references: [id])
   idLivre       Int
   miseAJourVar  MiseAJourVar[]

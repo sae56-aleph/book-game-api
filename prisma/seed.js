@@ -145,6 +145,10 @@ async function main() {
           case "SIMPLE":
             if (a.includes("(")) {
               //Est une option conditionnelle
+              let primitiveLabel = getLabelActionArg(a);
+              actionRow.label = primitiveLabel.substring(
+                primitiveLabel.indexOf(" ") + 1
+              );
               actionRow.condition = getCondition(a);
               conditionTab.push(actionRow);
             } else {
@@ -194,6 +198,7 @@ async function main() {
     data: {
       valeurInitale: 3,
       nom: "HABILETE",
+      icone: "run",
       type: "Statistique",
       idLivre: livre.id,
     },
@@ -207,6 +212,7 @@ async function main() {
     data: {
       valeurInitale: 3,
       nom: "FORCE",
+      icone: "boxing",
       type: "Statistique",
       idLivre: livre.id,
     },
@@ -220,6 +226,7 @@ async function main() {
     data: {
       valeurInitale: 3,
       nom: "INTELLIGENCE",
+      icone: "brain",
       type: "Statistique",
       idLivre: livre.id,
     },
@@ -233,6 +240,7 @@ async function main() {
     data: {
       valeurInitale: 0,
       nom: "CORDE",
+      icone: "rope.png",
       type: "Inventaire",
       idLivre: livre.id,
     },
