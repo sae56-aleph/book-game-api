@@ -1,71 +1,66 @@
-import("node-fetch")
-  .then(({ default: fetch }) => {
-    const fs = require("fs");
-    const path = require("path");
+import { writeFileSync, readdir, readFile } from "fs";
+import { join, basename, extname } from "path";
 
-    async function synthesizeText(text, locale, outputType, outputFormat) {
-      const url = "http://localhost:59125/process";
-      const params = new URLSearchParams({
+async function synthesizeText(text, locale, outputType, outputFormat) {
+    const url = "http://localhost:59125/process";
+    const params = new URLSearchParams({
         INPUT_TEXT: text,
         INPUT_TYPE: "TEXT",
         OUTPUT_TYPE: outputType,
         LOCALE: locale,
         AUDIO: outputFormat,
-      });
+    });
 
-      const response = await fetch(url, {
+    const response = await fetch(url, {
         method: "POST",
         body: params,
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+            "Content-Type": "application/x-www-form-urlencoded",
         },
-      });
+    });
 
-      if (!response.ok) {
+    if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-
-      return await response.arrayBuffer();
     }
 
-    function saveAudioToFile(audioData, filename) {
-      fs.writeFileSync(filename, Buffer.from(audioData));
-      console.log(`Audio saved to ${filename}`);
-    }
+    return await response.arrayBuffer();
+}
 
-    const inputDir = path.join(__dirname, "..", "in");
-    const outputDir = path.join(__dirname, "..", "out");
+function saveAudioToFile(audioData, filename) {
+    writeFileSync(filename, Buffer.from(audioData));
+    console.log(`Audio saved to ${filename}`);
+}
 
-    fs.readdir(inputDir, (err, files) => {
-      if (err) {
+const inputDir = join(__dirname, "..", "in");
+const outputDir = join(__dirname, "..", "out");
+
+readdir(inputDir, (err, files) => {
+    if (err) {
         console.error("Error reading input directory:", err);
         return;
-      }
+    }
 
-      files.forEach((file) => {
-        const inputFilePath = path.join(inputDir, file);
+    files.forEach((file) => {
+        const inputFilePath = join(inputDir, file);
 
-        fs.readFile(inputFilePath, "utf8", (err, data) => {
-          if (err) {
-            console.error(`Error reading file ${inputFilePath}:`, err);
-            return;
-          }
+        readFile(inputFilePath, "utf8", (err, data) => {
+            if (err) {
+                console.error(`Error reading file ${inputFilePath}:`, err);
+                return;
+            }
 
-          const text = data.trim();
+            const text = data.trim();
 
-          const locale = "fr";
-          const outputType = "AUDIO";
-          const outputFormat = "WAVE_FILE";
+            const locale = "fr";
+            const outputType = "AUDIO";
+            const outputFormat = "WAVE_FILE";
 
-          const outputFileName =
-            path.basename(file, path.extname(file)) + ".wav";
-          const outputFilePath = path.join(outputDir, outputFileName);
+            const outputFileName = basename(file, extname(file)) + ".wav";
+            const outputFilePath = join(outputDir, outputFileName);
 
-          synthesizeText(text, locale, outputType, outputFormat)
-            .then((audioData) => saveAudioToFile(audioData, outputFilePath))
-            .catch((error) => console.error("Error:", error));
+            synthesizeText(text, locale, outputType, outputFormat)
+                .then((audioData) => saveAudioToFile(audioData, outputFilePath))
+                .catch((error) => console.error("Error:", error));
         });
-      });
     });
-  })
-  .catch((error) => console.error("Error:", error));
+});
