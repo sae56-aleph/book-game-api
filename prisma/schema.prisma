@@ -74,7 +74,7 @@ model Action {
   actionCondition ActionCondition?
   actionCombat    ActionCombat?
   actionDe        ActionDe?
-  ActionEnigme    ActionEnigme?
+  actionEnigme    ActionEnigme?
 }
 
 model ActionSimple {
