@@ -194,6 +194,7 @@ async function main() {
     data: {
       valeurInitale: 3,
       nom: "HABILETE",
+      icone: "run",
       type: "Statistique",
       idLivre: livre.id,
     },
@@ -207,6 +208,7 @@ async function main() {
     data: {
       valeurInitale: 3,
       nom: "FORCE",
+      icone: "boxing",
       type: "Statistique",
       idLivre: livre.id,
     },
@@ -220,6 +222,7 @@ async function main() {
     data: {
       valeurInitale: 3,
       nom: "INTELLIGENCE",
+      icone: "brain",
       type: "Statistique",
       idLivre: livre.id,
     },
@@ -233,6 +236,7 @@ async function main() {
     data: {
       valeurInitale: 0,
       nom: "CORDE",
+      icone: "rope.png",
       type: "Inventaire",
       idLivre: livre.id,
     },

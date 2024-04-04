@@ -11,6 +11,9 @@ export function findSectionById(id) {
   return prisma.section.findUnique({
     where: { id },
     include: {
+      miseAJourVar: {
+        include: { variable: true },
+      },
       actions: {
         include: {
           actionCombat: true,

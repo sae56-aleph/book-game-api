@@ -20,6 +20,8 @@ Maintenant équipée de cette corde, vous retournez votre attention vers les por
 Quelle porte choisirez-vous cette fois-ci ?
 ---SIMPLE
 La Porte du Lapin Blanc : “Le temps est précieux ici.” [5]
+---
+CORDE +1
 
 
 #5 La Porte du Lapin Blanc

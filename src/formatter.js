@@ -9,6 +9,7 @@
  */
 export function formatAction(data) {
   const action = {
+    id: data.id,
     destination: data.idDestination,
     label: data.label,
   };
@@ -24,6 +25,7 @@ export function formatAction(data) {
   } else if (data.actionEnigme) {
     action.type = "ENIGME";
     action.reponse = data.actionEnigme.reponse;
+    action.idEnigme = data.actionEnigme.id;
   } else if (data.actionDe) {
     action.type = "DE";
     action.destinationEchec = data.actionDe.idDestinationEchec;
@@ -36,6 +38,17 @@ export function formatAction(data) {
 }
 
 /**
+ * Met en forme une mise à jour de variable
+ * @param {import("@prisma/client").MiseAJourVar} data
+ */
+export function formatVariableUpdate(data) {
+  return {
+    nom: data.variable.nom,
+    valeur: data.quantite,
+  };
+}
+
+/**
  * Met en forme une section
  * @param {import("@prisma/client").Section} data
  */
@@ -44,6 +57,7 @@ export function formatSection(data) {
     titre: data.titre,
     texte: data.texte,
     actions: data.actions.map(formatAction),
+    updates: data.miseAJourVar.map(formatVariableUpdate),
   };
 }
 
@@ -56,6 +70,7 @@ export function formatVariable(data) {
     nom: data.nom,
     valeurInitiale: data.valeurInitale,
     type: data.type,
+    icone: data.icone,
   };
 }
 
@@ -66,6 +81,7 @@ export function formatVariable(data) {
 export function formatBook(data) {
   return {
     id: data.id,
+    intro: data.idIntro,
     description: data.description,
     couverture: data.couverture,
     nom: data.nom,
