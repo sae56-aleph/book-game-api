@@ -4,7 +4,6 @@ import { join } from "path";
 
 const prisma = new PrismaClient();
 
-// const inputDir = join(process.cwd(), "in");
 const inputDir = process.env.IN_FOLDER;
 
 async function main() {
@@ -13,10 +12,15 @@ async function main() {
   try {
     await Promise.all(
       sections.map((section) => {
-        const { idLivre, id, texte } = section;
+        const { idLivre, id, texte, actions } = section;
         const filename = `${idLivre}-${id}.txt`;
 
-        return fs.writeFile(join(inputDir, filename), texte);
+        const texteFinal = actions.reduce(
+          (acc, action) => acc + `${action.label}.\n`,
+          texte
+        );
+
+        return fs.writeFile(join(inputDir, filename), texteFinal);
       })
     );
   } catch (err) {

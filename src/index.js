@@ -45,6 +45,15 @@ app.get("/section/:id", async (req, res) => {
   }
 });
 
+app.get("/section/:id/audio", async (req, res) => {
+  const id = parseInt(req.params.id);
+  const sectionRaw = await findSectionById(id);
+
+  if (!sectionRaw) return sendNotFound(res);
+
+  return res.json({ audio: `${sectionRaw.idLivre}-${sectionRaw.id}.wav` });
+});
+
 app.get("/book/:slug", async (req, res) => {
   const slug = req.params.slug;
   const bookRaw = await findBookBySlug(slug);
