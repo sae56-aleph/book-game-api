@@ -145,6 +145,10 @@ async function main() {
           case "SIMPLE":
             if (a.includes("(")) {
               //Est une option conditionnelle
+              let primitiveLabel = getLabelActionArg(a);
+              actionRow.label = primitiveLabel.substring(
+                primitiveLabel.indexOf(" ") + 1
+              );
               actionRow.condition = getCondition(a);
               conditionTab.push(actionRow);
             } else {
