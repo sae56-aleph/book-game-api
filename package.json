@@ -1,28 +1,30 @@
 {
-    "name": "book-game-api",
-    "version": "1.0.0",
-    "prisma": {
-        "seed": "node prisma/seed.js"
-    },
-    "description": "API du livre interractif",
-    "main": "index.js",
-    "scripts": {
-        "start": "node src/index.js",
-        "dev": "nodemon node src/index.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-        "@prisma/client": "^5.11.0",
-        "express": "^4.19.2"
-    },
-    "devDependencies": {
-        "@types/node": "^20.11.30",
-        "nodemon": "^3.1.0",
-        "prisma": "^5.11.0",
-        "ts-node": "^10.9.2",
-        "typescript": "^5.4.3"
-    },
-    "type": "module"
+  "name": "book-game-api",
+  "version": "1.0.0",
+  "prisma": {
+    "seed": "node prisma/seed.js"
+  },
+  "description": "API du livre interractif",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepareSpeech": "node src/populate_in.js",
+    "speech": "node src/speech.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^5.11.0",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "nodemon": "^3.1.0",
+    "prisma": "^5.11.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.3"
+  },
+  "type": "module"
 }
