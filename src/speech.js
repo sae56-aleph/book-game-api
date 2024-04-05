@@ -9,6 +9,7 @@ async function synthesizeText(text, locale, outputType, outputFormat) {
     OUTPUT_TYPE: outputType,
     LOCALE: locale,
     AUDIO: outputFormat,
+    VOICE: "upmc-pierre-hsmm",
   });
 
   const response = await fetch(url, {
