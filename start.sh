@@ -9,10 +9,9 @@ if [ ! -f "$directory/$file" ]; then
     echo "Populating database. Running commands..."
     # Commands
     sleep 5
-    npx prisma migrate dev
+    npx prisma migrate dev --skip-seed
     npx prisma db seed
     touch .db_filled
-
 fi
 
 npm run start
