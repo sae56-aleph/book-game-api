@@ -7,7 +7,9 @@ const prisma = new PrismaClient();
 const inputDir = process.env.IN_FOLDER;
 
 async function main() {
-  const sections = await prisma.section.findMany();
+  const sections = await prisma.section.findMany({
+    include: { actions: true },
+  });
 
   try {
     await Promise.all(
