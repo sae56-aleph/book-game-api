@@ -14,12 +14,12 @@ async function main() {
   try {
     await Promise.all(
       sections.map((section) => {
-        const { idLivre, id, texte, actions } = section;
+        const { idLivre, id, texte, titre, actions } = section;
         const filename = `${idLivre}-${id}.txt`;
 
         const texteFinal = actions.reduce(
           (acc, action) => acc + `${action.label}.\n`,
-          texte
+          titre + "." + texte
         );
 
         return fs.writeFile(join(inputDir, filename), texteFinal);
