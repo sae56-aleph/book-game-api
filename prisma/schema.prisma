@@ -1,0 +1,120 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Livre {
+  id          Int    @id @default(autoincrement())
+  description String
+  couverture  String
+  nom         String
+  slug        String @unique
+  idIntro     Int?   @unique
+
+  variables Variable[]
+  sections  Section[]
+  intro     Section?   @relation(name: "intro", fields: [idIntro], references: [id])
+}
+
+model Section {
+  id      Int    @id @default(autoincrement())
+  numero  Int
+  texte   String
+  titre   String
+  idLivre Int
+
+  livre              Livre          @relation(fields: [idLivre], references: [id])
+  livreIntro         Livre?         @relation(name: "intro")
+  miseAJourVar       MiseAJourVar[]
+  actions            Action[]       @relation(name: "section_origine")
+  declancheurs       Action[]       @relation(name: "section_destination")
+  declancheursDes    ActionDe[]     @relation(name: "section_de_echec")
+  declancheursCombat ActionCombat[] @relation(name: "section_combat_echec")
+
+  @@unique(name: "uniqNumero", [numero, idLivre])
+}
+
+model Variable {
+  id            Int            @id @default(autoincrement())
+  nom           String
+  valeurInitale Int
+  type          TypeVariable
+  icone         String
+  livre         Livre          @relation(fields: [idLivre], references: [id])
+  idLivre       Int
+  miseAJourVar  MiseAJourVar[]
+}
+
+enum TypeVariable {
+  Statistique
+  Inventaire
+}
+
+model MiseAJourVar {
+  section  Section  @relation(fields: [idSection], references: [id])
+  variable Variable @relation(fields: [idVariable], references: [id])
+  quantite Int
+
+  idSection  Int
+  idVariable Int
+
+  @@id([idVariable, idSection])
+}
+
+model Action {
+  id            Int    @id @default(autoincrement())
+  label         String
+  idOrigine     Int
+  idDestination Int
+
+  origine         Section          @relation(name: "section_origine", fields: [idOrigine], references: [id])
+  destination     Section          @relation(name: "section_destination", fields: [idDestination], references: [id])
+  actionSimple    ActionSimple?
+  actionCondition ActionCondition?
+  actionCombat    ActionCombat?
+  actionDe        ActionDe?
+  actionEnigme    ActionEnigme?
+}
+
+model ActionSimple {
+  id       Int    @id @default(autoincrement())
+  action   Action @relation(fields: [idAction], references: [id])
+  idAction Int    @unique
+}
+
+model ActionCondition {
+  id        Int    @id @default(autoincrement())
+  condition String
+  action    Action @relation(fields: [idAction], references: [id])
+  idAction  Int    @unique
+}
+
+model ActionCombat {
+  id                 Int      @id @default(autoincrement())
+  nom_ennemi         String
+  action             Action   @relation(fields: [idAction], references: [id])
+  destinationEchec   Section? @relation(name: "section_combat_echec", fields: [idDestinationEchec], references: [id])
+  idDestinationEchec Int?
+
+  idAction Int @unique
+}
+
+model ActionDe {
+  id                 Int      @id @default(autoincrement())
+  seuil              String
+  action             Action   @relation(fields: [idAction], references: [id])
+  idAction           Int      @unique
+  destinationEchec   Section? @relation(name: "section_de_echec", fields: [idDestinationEchec], references: [id])
+  idDestinationEchec Int?
+}
+
+model ActionEnigme {
+  id       Int    @id @default(autoincrement())
+  reponse  String
+  action   Action @relation(fields: [idAction], references: [id])
+  idAction Int    @unique
+}

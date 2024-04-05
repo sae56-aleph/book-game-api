@@ -1,1 +1,5 @@
 node_modules/
+.env
+in/
+out/
+.db_filled
