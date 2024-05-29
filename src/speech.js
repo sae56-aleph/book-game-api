@@ -2,7 +2,8 @@ import { writeFileSync, readdir, readFile } from "fs";
 import { join, basename, extname } from "path";
 
 async function synthesizeText(text, locale, outputType, outputFormat) {
-  const url = new URL("process", process.env.AUDIO_API);
+  const urlBase = `http://${process.env.TTS_HOST}:${process.env.TTS_PORT}`;
+  const url = new URL("process", urlBase);
   const params = new URLSearchParams({
     INPUT_TEXT: text,
     INPUT_TYPE: "TEXT",
@@ -32,8 +33,6 @@ function saveAudioToFile(audioData, filename) {
   console.log(`Audio saved to ${filename}`);
 }
 
-// const inputDir = join(process.cwd(), "in");
-// const outputDir = join(process.cwd(), "out");
 const inputDir = process.env.IN_FOLDER;
 const outputDir = process.env.OUT_FOLDER;
 

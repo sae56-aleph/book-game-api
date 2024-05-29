@@ -1,16 +1,24 @@
 services:
-    db:
-        image: postgres:16.2
-        restart: always
-        shm_size: 128mb
-        ports:
-            - "${DATABASE_PORT}:5432"
-        volumes:
-            - db_data:/var/lib/postgresql/data
-        environment:
-            POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
-            POSTGRES_USER: ${DATABASE_USER}
-            POSTGRES_DB: ${DATABASE_NAME}
+  db:
+    image: postgres:16.2
+    restart: always
+    shm_size: 128mb
+    ports:
+      - "${DATABASE_PORT}:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_USER: ${DATABASE_USER}
+      POSTGRES_DB: ${DATABASE_NAME}
+
+  tts:
+    image: synesthesiam/marytts:5.2
+    container_name: tts
+    restart: always
+    command: --voice upmc-pierre-hsmm
+    ports:
+      - "${TTS_PORT}:59125"
 
 volumes:
-    db_data:
+  db_data:
