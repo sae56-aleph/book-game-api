@@ -6,17 +6,10 @@ import {
 } from "./repository.js";
 import { formatBook, formatSection, formatEnigme } from "./formatter.js";
 import { levenshteinDistance } from "./levenshtein.js";
+import { readFile } from "fs/promises";
 
 const PORT = process.env.PORT || 3000;
 const app = express();
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-app.use((req, res, next) => {
-  res.set("Access-Control-Allow-Origin", "*");
-  next();
-});
 
 function sendError(res, message) {
   res.status(500);
@@ -29,6 +22,14 @@ function sendNotFound(res) {
   res.json({ message: "Not found" });
   return res;
 }
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use((_, res, next) => {
+  res.set("Access-Control-Allow-Origin", "*");
+  next();
+});
 
 app.get("/section/:id", async (req, res) => {
   const id = parseInt(req.params.id);
@@ -51,7 +52,13 @@ app.get("/section/:id/audio", async (req, res) => {
 
   if (!sectionRaw) return sendNotFound(res);
 
-  return res.json({ audio: `${sectionRaw.idLivre}-${sectionRaw.id}.wav` });
+  readFile(`out/${sectionRaw.idLivre}-${sectionRaw.id}.wav`).then((data) => {
+    res.setHeader("Content-Type", "audio/wav");
+    res.send(data);
+  }).catch((error) => {
+    console.error(error);
+    return sendError(res, "Error reading audio file");
+  });
 });
 
 app.get("/book/:slug", async (req, res) => {
