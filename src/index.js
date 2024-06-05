@@ -52,7 +52,7 @@ app.get("/section/:id/audio", async (req, res) => {
 
   if (!sectionRaw) return sendNotFound(res);
 
-  readFile(`out/${sectionRaw.idLivre}-${sectionRaw.id}.wav`).then((data) => {
+  readFile(`${process.env.OUT_FOLDER}/${sectionRaw.idLivre}-${sectionRaw.id}.wav`).then((data) => {
     res.setHeader("Content-Type", "audio/wav");
     res.send(data);
   }).catch((error) => {
