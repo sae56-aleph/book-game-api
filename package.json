@@ -7,8 +7,8 @@
   "description": "API du livre interractif",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon node src/index.js",
+    "start": "node src/server.js",
+    "dev": "nodemon node src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepareSpeech": "node --env-file .env src/populate_in.js",
     "speech": "node --env-file .env src/speech.js"
