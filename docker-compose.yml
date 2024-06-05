@@ -14,11 +14,15 @@ services:
 
   tts:
     image: synesthesiam/marytts:5.2
-    container_name: tts
     restart: always
     command: --voice upmc-pierre-hsmm
     ports:
       - "${TTS_PORT}:59125"
+
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
 
 volumes:
   db_data:

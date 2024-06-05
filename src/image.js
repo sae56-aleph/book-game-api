@@ -1,4 +1,4 @@
-async function fetchImage(prompt) {
+export async function fetchImage(prompt) {
   const payload = JSON.stringify({
     prompt: `Alice au pays des merveilles. Vous êtes Alice. ${prompt}`,
     aspect_ratio: "1:1",
@@ -19,10 +19,13 @@ async function fetchImage(prompt) {
     body: payload,
   };
 
-  const response = await fetch(host + pathname, requestOptions);
+  const url = new URL(pathname, host)
+  const response = await fetch(url, requestOptions);
   const responseData = await response.json();
 
-  if (response.status != 200) return null;
+  console.log(responseData)
+
+  if (!response.ok) return null;
   if (responseData.data.length == 0) return null;
 
   return responseData.data[0].asset_url;

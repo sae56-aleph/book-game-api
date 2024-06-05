@@ -7,6 +7,8 @@ import {
 import { formatBook, formatSection, formatEnigme } from "./formatter.js";
 import { levenshteinDistance } from "./levenshtein.js";
 import { readFile } from "fs/promises";
+import { fetchImage } from "./image.js";
+import { cacheConnect, getImageFromCache } from "./redis.js";
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -40,9 +42,9 @@ app.get("/section/:id", async (req, res) => {
 
   try {
     const section = formatSection(sectionRaw);
-    return res.json(section);
+    res.json(section);
   } catch (error) {
-    return sendError(error);
+    sendError(error);
   }
 });
 
@@ -53,13 +55,36 @@ app.get("/section/:id/audio", async (req, res) => {
   if (!sectionRaw) return sendNotFound(res);
 
   readFile(`${process.env.OUT_FOLDER}/${sectionRaw.idLivre}-${sectionRaw.id}.wav`).then((data) => {
+    console.log(data)
     res.setHeader("Content-Type", "audio/wav");
     res.send(data);
   }).catch((error) => {
     console.error(error);
-    return sendError(res, "Error reading audio file");
+    sendError(res, "Error reading audio file");
   });
 });
+
+app.get("/section/:id/image", async (req, res) => {
+  const id = parseInt(req.params.id);
+  const section = await findSectionById(id);
+  const imageKey = `${section.idLivre}-${section.id}`;
+
+  try {
+    const image = await getImageFromCache(imageKey, async () => {
+      const imageUrl = await fetchImage(section.texte);
+      if (!imageUrl) throw new Error("Unable to generate new image")
+
+      const imageData = await fetch(imageUrl)
+      const imageBuffer = await imageData.arrayBuffer()
+      return Buffer.from(imageBuffer)
+    })
+
+    res.setHeader("Content-Type", "image/jpeg")
+    res.send(image)
+  } catch (error) {
+    sendError(res, error.message)
+  }
+})
 
 app.get("/book/:slug", async (req, res) => {
   const slug = req.params.slug;
@@ -68,7 +93,7 @@ app.get("/book/:slug", async (req, res) => {
   if (!bookRaw) return sendNotFound(res);
 
   const book = formatBook(bookRaw);
-  return res.json(book);
+  res.json(book);
 });
 
 app.post("/levenshtein/:idEnigme", async (req, res) => {
@@ -93,4 +118,5 @@ app.post("/levenshtein/:idEnigme", async (req, res) => {
   res.send(enigmeResp);
 });
 
+cacheConnect()
 app.listen(PORT);
