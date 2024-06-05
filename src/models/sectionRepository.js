@@ -1,4 +1,4 @@
-import prisma from "../services/prisma";
+import prisma from "../services/prisma.js";
 
 export function findSectionById(id) {
   return prisma.section.findUnique({
