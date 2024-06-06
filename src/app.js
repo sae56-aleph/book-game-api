@@ -12,6 +12,7 @@ import {
   getSectionAudio,
   getSectionImage,
 } from "./controllers/sectionController.js";
+import { checkEnigma } from "./controllers/enigmaController.js";
 
 const app = express();
 
@@ -24,6 +25,7 @@ app.get("/book/:slug", getBook);
 app.get("/section/:id", getSection);
 app.get("/section/:id/audio", getSectionAudio);
 app.get("/section/:id/image", getSectionImage);
+app.post("/levenshtein/:idEnigme", checkEnigma);
 
 app.use(errorMiddleware);
 
