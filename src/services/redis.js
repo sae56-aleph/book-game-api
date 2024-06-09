@@ -1,6 +1,7 @@
 import { commandOptions, createClient } from "redis";
 
-const client = createClient({ url: "redis://localhost:6379" });
+const url = `redis://${process.env.CACHE_HOST}:${process.env.CACHE_PORT}`;
+const client = createClient({ url });
 const returnBuffer = commandOptions({ returnBuffers: true });
 const imageExpire = 7 * 24 * 60 * 60; // 7 jours
 // const imageExpire = 60;
